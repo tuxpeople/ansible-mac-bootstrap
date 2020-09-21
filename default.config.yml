@@ -1,14 +1,14 @@
 ---
 downloads: ~/.ansible-downloads/
 
-configure_dotfiles: yes
-configure_sudoers: yes
-configure_terminal: yes
-configure_osx: yes
+configure_dotfiles: no
+configure_sudoers: no
+configure_terminal: no
+configure_osx: no
 
-dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
+dotfiles_repo: https://github.com/tuxpeople/my-dotfiles.git
 dotfiles_repo_accept_hostkey: yes
-dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
+dotfiles_repo_local_destination: ~/git/my-dotfiles
 dotfiles_files:
   - .zshrc
   - .gitignore
@@ -18,53 +18,211 @@ dotfiles_files:
 
 homebrew_installed_packages:
   # - ansible # Installed via Pip.
-  - autoconf
-  - bash-completion
-  - doxygen
-  - gettext
-  - gifsicle
-  - git
-  - github/gh/gh
-  - go
-  - gpg
-  - httpie
-  - iperf
-  - libevent
   - sqlite
-  - mcrypt
-  - nmap
-  - node
-  - nvm
-  - php
-  - ssh-copy-id
+  - ansible
+  - arping
+  - atomicparsley
+  - azure-cli
+  - base64
+  - bash
+  - bash-completion
+  - bat
+  - bcrypt
+  - coreutils
   - cowsay
-  - readline
-  - openssl
+  - csshx
+  - curl
+  - dialog
+  - dosbox
+  - exif
+  - exiftool
+  - rtmpdump
+  - ffmpeg
+  - findutils
+  - fping
+  - git
+  - git-cola
+  - git-flow
+  - gnu-barcode
+  - gnu-getopt
+  - gnu-sed
+  - gnupg
+  - gnuplot
+  - go
+  - grep
+  - grsync
+  - htop
+  - httperf
+  - httpie
+  - httrack
+  - iperf
+  - iperf3
+  - jq
+  - jsonpp
+  - keychain
+  - kubernetes-cli
+  - lazygit
+  - lcdf-typetools
+  - lft
+  - lftp
+  - links
+  - lolcat
+  - lsof
+  - lynx
+  - mas
+  - memtester
+  - midnight-commander
+  - minikube
+  - mmv
+  - moreutils
+  - mosh
+  - mtools
+  - mtr
+  - multitail
+  - mycli
+  - mydumper
+  - mytop
+  - ncdu
+  - ncftp
+  - netcat
+  - ngrep
+  - nmap
+  - nuttcp
+  - openshift-cli
+  - p7zip
+  - pdftohtml
+  - pidof
+  - pigz
+  - pinentry-mac
+  - podman
   - pv
+  - pwgen
+  - qpdf
+  - qprint
+  - qrencode
+  - rclone
+  - rdiff-backup
+  - ren
+  - rename
+  - rsnapshot
+  - rsync
+  - screen
+  - shellcheck
+  - sipcalc
+  - speedtest-cli
+  - ssh-copy-id, link: true
+  - sshfs
+  - ssldump
+  - sslscan
+  - sysdig
+  - tcpdump
+  - tcpflow
+  - tcping
+  - tcpstat
+  - tcptrace
+  - tcptraceroute
+  - telnet
+  - tinc
+  - tmux
+  - trash
+  - tree
+  - unrar
+  - unrtf
+  - vagrant-completion
+  - vim
+  - webkit2png
   - wget
-  - wrk
+  - whois
+  - wifi-password
+  - wput
+  - xhyve
+  - youtube-dl
 
 homebrew_taps:
-  - homebrew/core
+  - homebrew/bundle
   - homebrew/cask
+  - homebrew/cask-drivers
+  - homebrew/cask-fonts
+  - homebrew/cask-versions
+  - homebrew/core
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - chromedriver
+  - 1password
+  - aerial
+  - balenaetcher
+  - bbedit
+  - dbeaver-community
   - docker
   - dropbox
+  - dosbox
   - firefox
+  - font-bahnschrift
+  - font-roboto
+  - font-roboto-mono
   - google-chrome
+  - gpg-suite
   - handbrake
-  - licecap
+  - hazel
+  - iterm2
+  - jdownloader
+  - keepassx
+  - little-snitch
+  - macpass
+  - megacmd
+  - microsoft-teams
+  - minishift
+  - nextcloud
+  - microsoft-office
+  - platypus
+  - pocket-casts
+  - rambox
+  - royal-tsx
+  #- seafile-client
   - sequel-pro
+  - skype-for-business
   - slack
-  - sublime-text
-  - transmit
+  - spotify
+  #- synology-drive
+  - tunnelblick
+  - unetbootin
   - vagrant
+  - virtualbox
+  - virtualbox-extension-pack
+  - vlc
+  - vmware-fusion
+  - vscodium
 
 # See `geerlingguy.mas` role documentation for usage instructions.
-mas_installed_apps: []
+mas_installed_apps:
+  - Affinity Designer, id: 824171161
+  - Affinity Photo, id: 824183456
+  - Affinity Publisher, id: 881418622
+  - Apple Configurator 2, id: 1037126344
+  - Bear, id: 1091189122
+#  - BwanaDik, id: 876923947
+  - DaisyDisk, id: 411643860
+  - ForkLift, id: 412448059
+  - FruitJuice, id: 671736912
+  - Grand Theft Auto Vice City, id: 424719511
+  - iMovie, id: 408981434
+  - Irvue, id: 1039633667
+  - Keynote, id: 409183694
+  - LanScan, id: 472226235
+  - Magnet, id: 441258766
+  - Numbers, id: 409203825
+  - OneDrive, id: 823766827
+  - Pages, id: 409201541
+  - PDFScanner, id: 410968114
+  - Playgrounds, id: 1496833156
+  - Proxie, id: 897814548
+  - Reeder, id: 1449412482
+  - Sid Meier's Railroads!, id: 536502825
+  - SQLPro for SQLite, id: 586001240
+  - Todoist, id: 585829637
+  - VMware Remote Console, id: 1230249825
+  - Microsoft To Do, id: 1274495053
+  - Swift Playgrounds, id: 1496833156
 mas_email: ""
 mas_password: ""
 
