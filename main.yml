@@ -5,18 +5,18 @@
   vars_files:
     - default.config.yml
 
+  vars_prompt:
+    - name: mas_email
+      prompt: "What is your mas username?"
+      private: no
+    - name: mas_password
+      prompt: "What is your mas password?"
+
   pre_tasks:
     - include_vars: "{{ item }}"
       with_fileglob:
         - "{{ playbook_dir }}/config.yml"
       tags: ['always']
-    
-    - vars_prompt:
-      - name: mas_email
-        prompt: "What is your mas username?"
-        private: no
-      - name: mas_password
-        prompt: "What is your mas password?"
 
   roles:
     - role: geerlingguy.homebrew
