@@ -41,6 +41,9 @@
       when: configure_osx
       tags: ['osx']
 
+    - include_tasks: tasks/various-settings.yml
+      when: configure_settings
+
     - include_tasks: tasks/extra-packages.yml
       tags: ['extra-packages']
 
