@@ -38,7 +38,6 @@
     src: files/iterm/com.googlecode.iterm2.plist
     dest: "{{ this_user_registered.home }}/Library/Preferences/com.googlecode.iterm2.plist"
     owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
 
 - name: Ensure custom iTerm Solarized Dark theme is added.
   shell: open "files/iterm/Solarized Dark.itermcolors"
@@ -49,5 +48,4 @@
     src: "{{ this_user_registered.home }}/Nextcloud/Allgemein/dotfiles/ssh_config"
     dest: "{{ this_user_registered.home }}/.ssh/config"
     owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
     state: link

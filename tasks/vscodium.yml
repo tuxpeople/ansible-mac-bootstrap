@@ -1,0 +1,19 @@
+---
+#https://dev.to/0xdonut/why-and-how-you-should-to-migrate-from-visual-studio-code-to-vscodium-j7d
+- name: Remove quarantinebit from VSCodium
+  shell: xattr -d com.apple.quarantine /Applications/VSCodium.app
+  changed_when: false
+
+- name: Copy settings
+  file:
+    src: "files/VSCodium/settings.json"
+    dest: "~/Library/Application\ Support/VSCodium/User/settings.json"
+    owner: "{{ ansible_user }}"
+
+- name: Install or update extensions
+  shell: xargs -n1 code --install-extension --force < files/VSCodium/extensions.txt
+  changed_when: false
+
+- name: Kill Electron
+  shell: kill -9 $(pgrep Electron)
+  changed_when: false
