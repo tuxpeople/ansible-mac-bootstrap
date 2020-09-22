@@ -6,11 +6,11 @@
   changed_when: false
   check_mode: no
 
-- name: Ensure custom Terminal profile 1 is added.
+- name: Ensure custom Terminal JJG Term theme is added.
   shell: open files/terminal/JJG-Term.terminal
   changed_when: false
 
-- name: Ensure custom Terminal profile 1 is added.
+- name: Ensure custom Terminal Solarized Dark theme is added.
   shell: open "files/terminal/Solarized Dark xterm-256color.terminal"
   changed_when: false
 
@@ -22,3 +22,18 @@
     - defaults write com.apple.terminal 'Startup Window Settings' 'Solarized Dark xterm-256color'
   changed_when: false
   when: "'Solarized Dark xterm-256color' not in terminal_theme.stdout"
+
+- name: Ensure custom iTerm Solarized Dark theme is added.
+  shell: open "files/iterm/Solarized Dark.itermcolors"
+  changed_when: false
+
+- name: Kill cfprefsd
+  shell: killall cfprefsd
+  changed_when: false
+
+- name: Copy iTerm2
+  file:
+    src: files/iterm/com.googlecode.iterm2.plist
+    dest: ~{{ ansible_user }}/Library/Preferences/com.googlecode.iterm2.plist
+    owner: {{ ansible_user }}
+    group: {{ ansible_user }}
