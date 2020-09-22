@@ -6,9 +6,9 @@ configure_sudoers: no
 configure_terminal: yes
 configure_osx: no
 
-dotfiles_repo: https://github.com/tuxpeople/my-dotfiles.git
+dotfiles_repo: https://github.com/tuxpeople/dotfiles.git
 dotfiles_repo_accept_hostkey: yes
-dotfiles_repo_local_destination: ~/git/my-dotfiles
+dotfiles_repo_local_destination: ~/git/dotfiles
 dotfiles_files:
   - .gitconfig
   - .gitignore
