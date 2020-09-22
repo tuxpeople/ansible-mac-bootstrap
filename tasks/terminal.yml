@@ -6,10 +6,13 @@
   changed_when: false
   check_mode: no
 
-- name: Ensure custom Terminal profile is added.
+- name: Ensure custom Terminal profile 1 is added.
   shell: open files/terminal/JJG-Term.terminal
   changed_when: false
-  when: "'JJG-Term' not in terminal_theme.stdout"
+
+- name: Ensure custom Terminal profile 1 is added.
+  shell: open "files/terminal/Solarized Dark xterm-256color.terminal"
+  changed_when: false
 
 # TODO: This doesn't work in Yosemite. Consider a different solution?
 - name: Ensure custom Terminal profile is set as default.
