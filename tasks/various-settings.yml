@@ -31,8 +31,8 @@
     - /System/Applications/Photos.app
     - /Applications/Todoist.app
     - /Applications/iTerm.app
-    - /Applications/Utilities/Terminal.app
-    - /Applications/Utilities/Console.app
+    - /System/Applications/Utilities/Terminal.app
+    - /System/Applications/Utilities/Console.app
     - "\"/Applications/Royal TSX.app\""
     - "\"/Applications/Citrix Workspace.app\""
     - "\"/System/Applications/App Store.app\""
