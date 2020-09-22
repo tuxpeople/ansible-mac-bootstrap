@@ -33,11 +33,16 @@
     state: present
   register: this_user_registered
 
-- name: Copy iTerm2
+- name: Copy iTerm2 setting
   file:
     src: files/iterm/com.googlecode.iterm2.plist
     dest: "{{ this_user_registered.home }}/Library/Preferences/com.googlecode.iterm2.plist"
     owner: "{{ ansible_user }}"
+
+- name: Remove quarantinebit from iTerm2
+  shell: xattr -d com.apple.quarantine /Applications/iTerm.app
+  changed_when: false
+  ignore_errors: true
 
 - name: Ensure custom iTerm Solarized Dark theme is added.
   shell: open "files/iterm/Solarized Dark.itermcolors"

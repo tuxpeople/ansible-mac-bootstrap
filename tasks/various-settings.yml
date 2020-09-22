@@ -1,5 +1,4 @@
 ---
-
 - name: Set hostname
   shell: "{{ item }}"
   with_items:
