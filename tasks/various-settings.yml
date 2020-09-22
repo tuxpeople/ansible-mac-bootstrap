@@ -41,8 +41,8 @@
     - "~/Downloads --section others"
 
 - name: Set the UMB Dock items
-  shell: '/usr/local/bin/dockutil --add "/Applications/Open%20Umb.app" --position 2 --no-restart'
-  when: {{ myhostname }} == "ws547"
+  shell: "/usr/local/bin/dockutil --add /Applications/Open%20Umb.app --position 2 --no-restart"
+  when: "{{ myhostname }}" == "ws547"
 
 - name: Reduce the size of the Dock to 30 points
   shell: defaults write com.apple.dock tilesize -int 30
