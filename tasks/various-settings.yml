@@ -20,7 +20,7 @@
   shell: /usr/local/bin/dockutil --remove all
 
 - name: Set the default Dock items
-  shell: "/usr/local/bin/dockutil --add {{ item }}"
+  shell: "/usr/local/bin/dockutil --add {{ item }} --no-restart"
   with_items:
     - /System/Applications/Launchpad.app
     - /Applications/Safari.app
@@ -33,15 +33,15 @@
     - /Applications/iTerm.app
     - /Applications/Utilities/Terminal.app
     - /Applications/Utilities/Console.app
-    - /Applications/Royal%20TSX.app
-    - /Applications/Citrix%20Workspace.app
-    - /System/Applications/App%20Store.app
-    - /System/Applications/System%20Preferences.app
+    - "\"/Applications/Royal TSX.app\""
+    - "\"/Applications/Citrix Workspace.app\""
+    - "\"/System/Applications/App Store.app\""
+    - "\"/System/Applications/System Preferences.app\""
     - /Applications --section others
     - ~/Downloads --section others
 
 - name: Set the UMB Dock items
-  shell: "/usr/local/bin/dockutil --add /Applications/Open%20Umb.app --position 2 --no-restart"
+  shell: /usr/local/bin/dockutil --add "/Applications/Open Umb.app" --position 2 --no-restart
   when: myhostname == "ws547"
 
 - name: Reduce the size of the Dock to 30 points
