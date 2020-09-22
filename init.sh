@@ -11,7 +11,11 @@ function installcli() {
   sleep 20
 }
 
+# Sudo Magic :)
 sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until we have finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 [ ! -d "/Library/Developer/CommandLineTools" ] && installcli
 
