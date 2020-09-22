@@ -1,4 +1,14 @@
 ---
+
+- name: Set hostname
+  shell: "{{ item }}"
+  with_items:
+    - "scutil --set ComputerName {{ myhostname }}"
+    - "scutil --set HostName {{ myhostname }}"
+    - "scutil --set LocalHostName {{ myhostname }}"
+    - "defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string {{ myhostname }}"
+  become: yes
+
 - name: Install base utilities
   homebrew:
     name: "{{ item }}"
@@ -6,19 +16,28 @@
     - m-cli
     - dockutil
 
-# - name: Remove all items from the Dock
-#   shell: /usr/local/bin/dockutil --remove all
+- name: Remove all items from the Dock
+  shell: /usr/local/bin/dockutil --remove all
 
-# - name: Set the default Dock items
-#   shell: "/usr/local/bin/dockutil --add {{ item }} --no-restart"
-#   with_items:
-#     - /Applications/Safari.app
-#     - "\"/Applications/App Store.app\""
-#     - "\"/Applications/System Preferences.app\""
-#     - /Applications/Utilities/Terminal.app
-#     - /Applications/Utilities/Console.app
-#     - "/Applications --section others"
-#     - "~/Downloads --section others"
+- name: Set the default Dock items
+  shell: "/usr/local/bin/dockutil --add {{ item }} --no-restart"
+  with_items:
+    - "/System/Applications/Launchpad.app"
+    - "/Applications/Open%20Umb.app"
+    - "/Applications/Safari.app"
+    - "/System/Applications/Mail.app"
+    - "/System/Applications/Messages.app"
+    - "/System/Applications/Calendar.app"
+    - "/System/Applications/Notes.app"
+    - "/System/Applications/Photos.app"
+    - "/Applications/Todoist.app"
+    - "/Applications/iTerm.app"
+    - "/Applications/Royal%20TSX.app"
+    - "/Applications/Citrix%20Workspace.app"
+    - "/System/Applications/App%20Store.app"
+    - "/System/Applications/System%20Preferences.app"
+    - "/Applications --section others"
+    - "~/Downloads --section others"
 
 - name: Reduce the size of the Dock to 30 points
   shell: defaults write com.apple.dock tilesize -int 30

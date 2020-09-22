@@ -6,6 +6,9 @@
     - default.config.yml
 
   vars_prompt:
+    - name: myhostname
+      prompt: "Whats the hostname?"
+      private: no
     - name: mas_email
       prompt: "What is your mas username?"
       private: no
