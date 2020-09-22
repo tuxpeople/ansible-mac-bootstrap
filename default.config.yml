@@ -1,7 +1,7 @@
 ---
 downloads: ~/.ansible-downloads/
 
-configure_dotfiles: no
+configure_dotfiles: yes
 configure_sudoers: no
 configure_terminal: yes
 configure_osx: no
@@ -10,11 +10,11 @@ dotfiles_repo: https://github.com/tuxpeople/my-dotfiles.git
 dotfiles_repo_accept_hostkey: yes
 dotfiles_repo_local_destination: ~/git/my-dotfiles
 dotfiles_files:
-  - .zshrc
+  - .gitconfig
   - .gitignore
   - .inputrc
-  - .osx
-  - .vimrc
+  - .macos
+  - .wgetrc
 
 homebrew_use_brewfile: true
 homebrew_upgrade_all_packages: yes
@@ -35,7 +35,7 @@ mas_installed_apps: []
 mas_email: ""
 mas_password: ""
 
-osx_script: "~/.osx --no-restart"
+osx_script: "~/.macos --no-restart"
 
 # Install packages from other package managers.
 # Note: You are responsible for making sure the required package managers are
