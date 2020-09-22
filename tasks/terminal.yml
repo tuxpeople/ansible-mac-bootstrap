@@ -27,10 +27,16 @@
   shell: killall cfprefsd
   changed_when: false
 
+- name: Getting Users Homedir
+  user:
+      name: { ansible_user }}
+      state: present
+    register: this_user_registered
+
 - name: Copy iTerm2
   file:
     src: files/iterm/com.googlecode.iterm2.plist
-    dest: "~{{ ansible_user }}/Library/Preferences/com.googlecode.iterm2.plist"
+    dest: {{ this_user_registered.home }}/Library/Preferences/com.googlecode.iterm2.plist
     owner: {{ ansible_user }}
     group: {{ ansible_user }}
 
@@ -40,8 +46,8 @@
 
 - name: Ensure ssh config is a link to nextcloud
   file:
-    src: "~{{ ansible_user }}/Nextcloud/Allgemein/dotfiles/ssh_config"
-    dest: "~{{ ansible_user }}/.ssh/config"
+    src: "{{ this_user_registered.home }}/Nextcloud/Allgemein/dotfiles/ssh_config"
+    dest: "{{ this_user_registered.home }}/.ssh/config"
     owner: {{ ansible_user }}
     group: {{ ansible_user }}
     state: link
