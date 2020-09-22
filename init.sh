@@ -28,8 +28,16 @@ sudo pip install ansible --upgrade
 mkdir -p /tmp/git
 git clone https://github.com/tuxpeople/ansible-mac-bootstrap.git /tmp/git
 
-echo "Bootstraping machine"
+echo "Setting max open files"
 cd /tmp/git
+sudo cp files/system/limit.maxfiles.plist /Library/LaunchDaemons
+sudo cp files/system/limit.maxproc.plist /Library/LaunchDaemons
+sudo chown root:wheel /Library/LaunchDaemons/limit.maxfiles.plist
+sudo chown root:wheel /Library/LaunchDaemons/limit.maxproc.plist
+sudo launchctl load -w /Library/LaunchDaemons/limit.maxfiles.plist
+sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist
+
+echo "Bootstraping machine"
 ansible-galaxy install -r requirements.yml
 ansible-playbook main.yml -i inventory -K
 
