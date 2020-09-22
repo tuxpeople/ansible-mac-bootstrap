@@ -6,6 +6,7 @@ configure_sudoers: no
 configure_terminal: yes
 configure_osx: yes
 configure_settings: yes
+configure_vscodium: yes
 
 dotfiles_repo: git@github.com:tuxpeople/dotfiles.git
 dotfiles_repo_accept_hostkey: yes
