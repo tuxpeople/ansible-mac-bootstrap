@@ -7,7 +7,7 @@ configure_terminal: yes
 configure_osx: yes
 configure_settings: yes
 
-dotfiles_repo: https://github.com/tuxpeople/dotfiles.git
+dotfiles_repo: git@github.com:tuxpeople/dotfiles.git
 dotfiles_repo_accept_hostkey: yes
 dotfiles_repo_local_destination: ~/git/dotfiles
 dotfiles_files:
