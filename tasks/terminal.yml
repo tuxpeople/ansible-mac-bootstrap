@@ -18,7 +18,7 @@
 - name: Ensure custom Terminal profile is set as default.
   shell: "{{ item }}"
   with_items:
-    - defaults write com.apple.terminal 'Default Window Settings' 'JJG-Term'
-    - defaults write com.apple.terminal 'Startup Window Settings' 'JJG-Term'
+    - defaults write com.apple.terminal 'Default Window Settings' 'Solarized Dark xterm-256color'
+    - defaults write com.apple.terminal 'Startup Window Settings' 'Solarized Dark xterm-256color'
   changed_when: false
-  when: "'JJG-Term' not in terminal_theme.stdout"
+  when: "'Solarized Dark xterm-256color' not in terminal_theme.stdout"
