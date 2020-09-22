@@ -3,6 +3,7 @@
 - name: Remove quarantinebit from VSCodium
   shell: xattr -d com.apple.quarantine /Applications/VSCodium.app
   changed_when: false
+  ignore_errors: true
 
 - name: Copy settings
   file:
