@@ -22,23 +22,23 @@
 - name: Set the default Dock items
   shell: "/usr/local/bin/dockutil --add {{ item }}"
   with_items:
-    - "/System/Applications/Launchpad.app"
-    - "/Applications/Safari.app"
-    - "/System/Applications/Mail.app"
-    - "/System/Applications/Messages.app"
-    - "/System/Applications/Calendar.app"
-    - "/System/Applications/Notes.app"
-    - "/System/Applications/Photos.app"
-    - "/Applications/Todoist.app"
-    - "/Applications/iTerm.app"
-    - "/Applications/Utilities/Terminal.app"
-    - "/Applications/Utilities/Console.app"
-    - "/Applications/Royal%20TSX.app"
-    - "/Applications/Citrix%20Workspace.app"
-    - "/System/Applications/App%20Store.app"
-    - "/System/Applications/System%20Preferences.app"
-    - "/Applications --section others"
-    - "~/Downloads --section others"
+    - /System/Applications/Launchpad.app
+    - /Applications/Safari.app
+    - /System/Applications/Mail.app
+    - /System/Applications/Messages.app
+    - /System/Applications/Calendar.app
+    - /System/Applications/Notes.app
+    - /System/Applications/Photos.app
+    - /Applications/Todoist.app
+    - /Applications/iTerm.app
+    - /Applications/Utilities/Terminal.app
+    - /Applications/Utilities/Console.app
+    - /Applications/Royal%20TSX.app
+    - /Applications/Citrix%20Workspace.app
+    - /System/Applications/App%20Store.app
+    - /System/Applications/System%20Preferences.app
+    - /Applications --section others
+    - ~/Downloads --section others
 
 - name: Set the UMB Dock items
   shell: "/usr/local/bin/dockutil --add /Applications/Open%20Umb.app --position 2 --no-restart"
