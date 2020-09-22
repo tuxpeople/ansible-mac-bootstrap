@@ -20,7 +20,7 @@
   shell: /usr/local/bin/dockutil --remove all
 
 - name: Set the default Dock items
-  shell: "/usr/local/bin/dockutil --add {{ item }} --no-restart"
+  shell: "/usr/local/bin/dockutil --add {{ item }}"
   with_items:
     - /System/Applications/Launchpad.app
     - /Applications/Safari.app
