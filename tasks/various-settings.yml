@@ -21,6 +21,8 @@
     - /System/Applications/Launchpad.app
     - /Applications/Safari.app
     - /System/Applications/Mail.app
+    - "\"/Applications/Microsoft Outlook.app\""
+    - "\"/Applications/Microsoft Teams.app\""
     - /Applications/VSCodium.app
     - /System/Applications/Messages.app
     - /System/Applications/Calendar.app
