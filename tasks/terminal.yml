@@ -39,8 +39,8 @@
     dest: "{{ this_user_registered.home }}/Library/Preferences/com.googlecode.iterm2.plist"
     owner: "{{ ansible_user }}"
 
-- name: Remove quarantinebit from iTerm2
-  shell: xattr -d com.apple.quarantine /Applications/iTerm.app
+- name: Remove extended attributes from iTerm2
+  shell: xattr -c /Applications/iTerm.app
   changed_when: false
   ignore_errors: true
 

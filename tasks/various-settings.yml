@@ -19,11 +19,13 @@
   shell: /usr/local/bin/dockutil --remove all
 
 - name: Set the default Dock items
-  shell: "/usr/local/bin/dockutil --add {{ item }}"
+  shell: "/usr/local/bin/dockutil --add {{ item }}; sleep 1"
   with_items:
     - /System/Applications/Launchpad.app
     - /Applications/Safari.app
     - /System/Applications/Mail.app
+    - /Applications/Safari.app
+    - /Applications/VSCodium.app
     - /System/Applications/Messages.app
     - /System/Applications/Calendar.app
     - /System/Applications/Notes.app
@@ -40,11 +42,11 @@
     - ~/Downloads --section others
 
 - name: Set the UMB Dock items
-  shell: /usr/local/bin/dockutil --add "/Applications/Open Umb.app" --position 2
+  shell: /usr/local/bin/dockutil --add "/Applications/Open Umb.app" --position 2; sleep 2
   when: myhostname == "ws547"
 
 - name: Reduce the size of the Dock to 30 points
-  shell: defaults write com.apple.dock tilesize -int 30
+  shell: defaults write com.apple.dock tilesize -int 30; sleep 2
 
 - name: Change Dock's position to the bottom of the screen
   shell: /usr/local/bin/m dock position BOTTOM

@@ -1,7 +1,7 @@
 ---
 #https://dev.to/0xdonut/why-and-how-you-should-to-migrate-from-visual-studio-code-to-vscodium-j7d
-- name: Remove quarantinebit from VSCodium
-  shell: xattr -d com.apple.quarantine /Applications/VSCodium.app
+- name: Remove extended attributes from VSCodium
+  shell: xattr -c /Applications/VSCodium.app
   changed_when: false
   ignore_errors: true
 
