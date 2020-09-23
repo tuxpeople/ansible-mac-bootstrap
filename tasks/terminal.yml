@@ -34,11 +34,10 @@
   register: this_user_registered
 
 - name: Copy iTerm2 setting
-  file:
+  copy:
     src: files/iterm/com.googlecode.iterm2.plist
     dest: "{{ this_user_registered.home }}/Library/Preferences/com.googlecode.iterm2.plist"
     owner: "{{ ansible_user }}"
-    state: hard
 
 - name: Remove extended attributes from iTerm2
   shell: xattr -c /Applications/iTerm.app
