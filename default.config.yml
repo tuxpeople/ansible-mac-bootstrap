@@ -12,10 +12,22 @@ dotfiles_repo: git@github.com:tuxpeople/dotfiles.git
 dotfiles_repo_accept_hostkey: yes
 dotfiles_repo_local_destination: ~/git/dotfiles
 dotfiles_files:
+  - .aliases
+  - .bash_profile
+  - .bash_prompt
+  - .bashrc
+  - .curlrc
+  - .exports
+  - .functions
+  - .git
+  - .gitattributes
   - .gitconfig
   - .gitignore
+  - .gvimrc
   - .inputrc
   - .macos
+  - .screenrc
+  - .tmux.conf
   - .wgetrc
 
 homebrew_use_brewfile: true
