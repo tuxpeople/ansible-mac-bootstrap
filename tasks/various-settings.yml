@@ -48,13 +48,13 @@
   shell: defaults write com.apple.dock tilesize -int 30; sleep 2
 
 - name: Change Dock's position to the bottom of the screen
-  shell: /usr/local/bin/m dock position BOTTOM
+  shell: /usr/local/bin/m dock position BOTTOM; sleep 2
 
 - name: Turn magnification on
-  shell: /usr/local/bin/m dock magnification YES
+  shell: /usr/local/bin/m dock magnification YES; sleep 2
 
 - name: Disable Dock's auto hide feature
-  shell: /usr/local/bin/m dock autohide no
+  shell: /usr/local/bin/m dock autohide no; sleep 2
 
 - name: Disable the Screensaver
   shell: defaults write com.apple.screensaver idleTime 0
