@@ -97,6 +97,3 @@
 
 - name: Show the Path Bar in Finder
   shell: defaults write com.apple.finder ShowPathbar -bool true
-
-- name: Restart Finder
-  shell: killall Finder
