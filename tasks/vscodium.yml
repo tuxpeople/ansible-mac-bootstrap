@@ -6,7 +6,7 @@
   ignore_errors: true
 
 - name: Copy settings
-  file:
+  copy:
     src: "files/VSCodium/settings.json"
     dest: "~/Library/Application\ Support/VSCodium/User/settings.json"
     owner: "{{ ansible_user }}"
