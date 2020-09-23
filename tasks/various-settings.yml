@@ -10,10 +10,7 @@
 
 - name: Install base utilities
   homebrew:
-    name: "{{ item }}"
-  with_items:
-    - m-cli
-    - dockutil
+    name: ['m-cli', 'dockutil']
 
 - name: Remove all items from the Dock
   shell: /usr/local/bin/dockutil --remove all; sleep 2
