@@ -19,7 +19,6 @@ dotfiles_files:
   - .curlrc
   - .exports
   - .functions
-  - .git
   - .gitattributes
   - .gitconfig
   - .gitignore
