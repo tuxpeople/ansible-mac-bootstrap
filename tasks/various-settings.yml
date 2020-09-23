@@ -13,10 +13,10 @@
     name: ['m-cli', 'dockutil']
 
 - name: Remove all items from the Dock
-  shell: /usr/local/bin/dockutil --remove all; sleep 2
+  shell: /usr/local/bin/dockutil --remove all; sleep 3
 
 - name: Set the default Dock items
-  shell: "/usr/local/bin/dockutil --add {{ item }}; sleep 4"
+  shell: "/usr/local/bin/dockutil --add {{ item }}; sleep 5"
   with_items:
     - /System/Applications/Launchpad.app
     - /Applications/Safari.app
@@ -38,7 +38,7 @@
     - ~/Downloads --section others
 
 - name: Set the UMB Dock items
-  shell: "/usr/local/bin/dockutil --add {{ item }}; sleep 4"
+  shell: "/usr/local/bin/dockutil --add {{ item }}; sleep 5"
   with_items:
     - "\"/Applications/Open Umb.app\" --position 2"
   when: myhostname == "ws547"
