@@ -54,3 +54,4 @@
     dest: "{{ this_user_registered.home }}/.ssh/config"
     owner: "{{ ansible_user }}"
     state: link
+    force: yes
