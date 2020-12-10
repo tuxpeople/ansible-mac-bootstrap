@@ -19,14 +19,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 [ ! -d "/Library/Developer/CommandLineTools" ] && installcli
 
-echo "Removing pyparsing"
-sudo rm -rf /System/Library/Frameworks/Python.framework/Versions/Current/Extras/lib/python/pyparsing*
-
 echo "Installing pip"
 sudo easy_install -U pip
 
 echo "Ansible"
-sudo pip install ansible --upgrade
+sudo pip install ansible --upgrade --ignore-installed pyparsing
 
 mkdir -p /tmp/git
 git clone https://github.com/tuxpeople/ansible-mac-bootstrap.git /tmp/git
