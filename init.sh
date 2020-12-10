@@ -19,6 +19,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 [ ! -d "/Library/Developer/CommandLineTools" ] && installcli
 
+echo "Removing pyparsing"
+sudo rm -rf /System/Library/Frameworks/Python.framework/Versions/Current/Extras/lib/python/pyparsing*
+
 echo "Installing pip"
 sudo easy_install -U pip
 
