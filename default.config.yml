@@ -8,7 +8,7 @@ configure_osx: yes
 configure_settings: yes
 configure_vscodium: yes
 
-dotfiles_repo: git@github.com:tuxpeople/dotfiles.git
+dotfiles_repo: https://github.com/tuxpeople/dotfiles.git
 dotfiles_repo_accept_hostkey: yes
 dotfiles_repo_local_destination: ~/git/dotfiles
 dotfiles_files:
@@ -46,34 +46,7 @@ homebrew_cask_uninstalled_apps: []
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_email: ""
 mas_password: ""
-mas_installed_apps: 
-  - { id: 824171161, name "Affinity Designer" }
-  - { id: 824183456, name "Affinity Photo" }
-  - { id: 881418622, name "Affinity Publisher" }
-  - { id: 1037126344, name "Apple Configurator 2" }
-  - { id: 1091189122, name "Bear" }
-  - { id: 411643860, name "DaisyDisk" }
-  - { id: 412448059, name "ForkLift" }
-  - { id: 671736912, name "FruitJuice" }
-  - { id: 424719511, name "Grand Theft Auto Vice City" }
-  - { id: 408981434, name "iMovie" }
-  - { id: 1039633667, name "Irvue" }
-  - { id: 409183694, name "Keynote" }
-  - { id: 472226235, name "LanScan" }
-  - { id: 441258766, name "Magnet" }
-  - { id: 409203825, name "Numbers" }
-  - { id: 823766827, name "OneDrive" }
-  - { id: 409201541, name "Pages" }
-  - { id: 410968114, name "PDFScanner" }
-  - { id: 1496833156, name "Playgrounds" }
-  - { id: 897814548, name "Proxie" }
-  - { id: 1449412482, name "Reeder" }
-  - { id: 536502825, name "Sid Meier's Railroads!" }
-  - { id: 586001240, name "SQLPro for SQLite" }
-  - { id: 585829637, name "Todoist" }
-  - { id: 1230249825, name "VMware Remote Console" }
-  - { id: 1274495053, name "Microsoft To Do" }
-  - { id: 1496833156, name "Swift Playgrounds" }
+mas_installed_apps: ""
   
 osx_script: "~/.macos --no-restart"
 
