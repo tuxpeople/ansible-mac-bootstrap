@@ -99,8 +99,14 @@
 - name: Show the Path Bar in Finder
   shell: defaults write com.apple.finder ShowPathbar -bool true
 
+- name: Getting Users Homedir
+  user:
+    name: "{{ ansible_user }}"
+    state: present
+  register: this_user_registered
+
 - name: Set wallpaper
-  shell: osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/tmp/git/files/luca-micheli-422053-unsplash.jpg"'
+  shell: osascript -e 'tell application "Finder" to set desktop picture to POSIX file "{{ this_user_registered.home }}/git/dotfiles/wallpaper/luca-micheli-422053-unsplash.jpg"'
   
 - name: Enable SSH access
   shell: systemsetup -setremotelogin on
