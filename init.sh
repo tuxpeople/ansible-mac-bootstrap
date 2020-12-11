@@ -38,4 +38,6 @@ sudo launchctl load -w /Library/LaunchDaemons/limit.maxfiles.plist
 sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist
 
 echo ""
-echo "now run ./run.sh"
+echo "1: Please log into Mac Appstore"
+echo "2: cd /tmp/git"
+echo "3: ./run.sh"
