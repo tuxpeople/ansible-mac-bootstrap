@@ -37,10 +37,5 @@ sudo chown root:wheel /Library/LaunchDaemons/limit.maxproc.plist
 sudo launchctl load -w /Library/LaunchDaemons/limit.maxfiles.plist
 sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist
 
-curl -L https://raw.githubusercontent.com/tuxpeople/dotfiles/master/Brewfile > files/Brewfile
-
-echo "Bootstraping machine"
-ansible-galaxy install -r requirements.yml
-ansible-playbook main.yml -i inventory -K
-
-rm -rf /tmp/git
+echo ""
+echo "now run ./run.sh"
