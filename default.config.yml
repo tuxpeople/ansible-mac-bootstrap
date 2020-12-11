@@ -7,6 +7,7 @@ configure_terminal: yes
 configure_osx: yes
 configure_settings: yes
 configure_vscodium: yes
+various_software: yes
 
 dotfiles_repo: https://github.com/tuxpeople/dotfiles.git
 dotfiles_repo_accept_hostkey: yes
