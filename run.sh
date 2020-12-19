@@ -1,5 +1,7 @@
 #!/bin/bash
 
+chsh -s /bin/bash
+
 CWD=`pwd`
 cd `dirname "$(realpath $0)"`
 
