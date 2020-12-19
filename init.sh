@@ -9,6 +9,7 @@ function installcli() {
   rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
   echo "Sleep 20"
   sleep 20
+  xcode-select --install
 }
 
 # Sudo Magic :)
