@@ -111,3 +111,6 @@
 - name: Enable SSH access
   shell: systemsetup -setremotelogin on
   become: true
+
+- name: Add Pictures folder to sidebar
+  shell: "mysides add Bilder file://$HOME/Pictures/"
