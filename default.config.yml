@@ -22,13 +22,13 @@ dotfiles_files:
   - .functions
   - .gitattributes
   - .gitconfig
-  - .gitignore
   - .gvimrc
   - .inputrc
   - .macos
   - .screenrc
   - .tmux.conf
   - .wgetrc
+  - .vimrc
 
 homebrew_use_brewfile: true
 homebrew_upgrade_all_packages: yes
