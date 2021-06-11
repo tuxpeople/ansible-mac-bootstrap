@@ -21,10 +21,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 [ ! -d "/Library/Developer/CommandLineTools" ] && installcli
 
 echo "Installing pip"
-sudo easy_install -U pip
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && sudo python get-pip.py
 
 echo "Ansible"
-sudo pip install ansible --upgrade --ignore-installed pyparsing
+sudo python -m pip install ansible paramiko pyparsing
 
 mkdir -p /tmp/git
 git clone https://github.com/tuxpeople/ansible-mac-bootstrap.git /tmp/git
