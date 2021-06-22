@@ -16,6 +16,11 @@
 - name: Ensure custom Terminal profile is added.
   command: open /tmp/JJG-Term.terminal
   changed_when: false
+  when: "'JJG-Term' not in terminal_theme.stdout"
+
+- name: Ensure custom Terminal profile is added.
+  command: open /tmp/JJG-Term.terminal
+  changed_when: false
 
 - name: Ensure custom Terminal Solarized Dark theme is added.
   shell: open "files/terminal/Solarized Dark xterm-256color.terminal"
