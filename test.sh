@@ -46,3 +46,7 @@ curl -L https://raw.githubusercontent.com/tuxpeople/dotfiles/master/Brewfile > f
 ansible-galaxy install -r requirements.yml
 
 ansible-playbook main.yml --ask-become-pass
+
+cd
+
+rm -rf $HOME/tmpgi
