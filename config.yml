@@ -1,16 +1,34 @@
 ---
 downloads: ~/.ansible-downloads/
 
-configure_dotfiles: yes
-configure_sudoers: no
-configure_terminal: yes
-configure_osx: yes
-configure_settings: yes
-configure_vscodium: yes
-various_software: yes
+configure_dotfiles: true
+configure_terminal: true
+configure_osx: true
+configure_settings: true
+configure_vscodium: true
+various_software: true
+
+# Set to 'true' to configure the Dock via dockutil.
+configure_dock: false
+dockitems_remove: []
+# - Launchpad
+# - TV
+# - Podcasts
+# - 'App Store'
+dockitems_persist: []
+# - name: "Sublime Text"
+#   path: "/Applications/Sublime Text.app/"
+#   pos: 5
+
+configure_sudoers: false
+sudoers_custom_config: ''
+# Example:
+# sudoers_custom_config: |
+#   # Allow users in admin group to use sudo with no password.
+#   %admin ALL=(ALL) NOPASSWD: ALL
 
 dotfiles_repo: https://github.com/tuxpeople/dotfiles.git
-dotfiles_repo_accept_hostkey: yes
+dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/git/dotfiles
 dotfiles_files:
   - .aliases
@@ -31,7 +49,7 @@ dotfiles_files:
   - .vimrc
 
 homebrew_use_brewfile: true
-homebrew_upgrade_all_packages: yes
+homebrew_upgrade_all_packages: true
 homebrew_clear_cache: true
 homebrew_brewfile_dir: '{{ playbook_dir }}/files/'
 
