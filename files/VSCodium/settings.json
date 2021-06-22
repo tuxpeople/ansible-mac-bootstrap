@@ -1,6 +1,0 @@
-{
-    "git.autofetch": true,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.tabSize": 2
-    "workbench.iconTheme": "vscode-icons",
-}
