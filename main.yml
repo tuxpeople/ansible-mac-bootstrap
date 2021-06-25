@@ -36,8 +36,6 @@
       tags: ['dock']
 
   tasks:
-    - import_tasks: tasks/ansible-setup.yml
-
     # - include_tasks: tasks/sudoers.yml
     #   when: configure_sudoers
     #   tags: ['sudoers']
