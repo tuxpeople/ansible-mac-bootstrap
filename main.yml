@@ -54,7 +54,7 @@
     - import_tasks: tasks/various-settings.yml
       when: configure_settings
 
-    - import_tasks: tasks/vscodium.yml
+    - import_tasks: tasks/vscode.yml
       when: configure_vscodium
 
     - import_tasks: tasks/extra-packages.yml
