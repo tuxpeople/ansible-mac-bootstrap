@@ -55,4 +55,4 @@ ansible-playbook main.yml --ask-become-pass
 
 cd
 
-rm -rf $HOME/tmpgi
+rm -rf $HOME/tmpgit
