@@ -25,7 +25,7 @@ export PATH="$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$PATH"
 sudo python3 -m pip install --upgrade pip
 
 echo "Installing Ansible"
-python3 -m pip install ansible
+python3 -m pip install ansible pexpect jmespath
 
 mkdir -p $HOME/tmpgit
 git clone https://github.com/tuxpeople/ansible-mac-bootstrap.git $HOME/tmpgit
