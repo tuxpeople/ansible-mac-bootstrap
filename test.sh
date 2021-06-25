@@ -1,5 +1,11 @@
 #!/bin/bash
 
+FILE=~/ansiblevault
+if [ ! -f "$FILE" ]; then
+    echo "$FILE does not exist."
+    exit 1
+fi
+
 function installcli() {
   # https://gist.github.com/ChristopherA/a598762c3967a1f77e9ecb96b902b5db
   echo "Update MacOS & Install Command Line Interface. If this fails, do it manually."
