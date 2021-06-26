@@ -95,7 +95,7 @@ Any variable can be overridden in `config.yml`; see the supporting roles' docume
 
 Applications (installed with Homebrew Cask):
 
-  - [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/)
+  - [ChromeDriver](https://sites.google.com/chromium.org/driver/)
   - [Docker](https://www.docker.com/)
   - [Dropbox](https://www.dropbox.com/)
   - [Firefox](https://www.mozilla.org/en-US/firefox/new/)
@@ -106,7 +106,7 @@ Applications (installed with Homebrew Cask):
   - [LimeChat](http://limechat.net/mac/)
   - [MacVim](http://macvim-dev.github.io/macvim/)
   - [nvALT](http://brettterpstra.com/projects/nvalt/)
-  - [Sequel Pro](https://www.sequelpro.com/) (MySQL client)
+  - [Sequel Ace](https://sequel-ace.com) (MySQL client)
   - [Skitch](https://evernote.com/skitch/)
   - [Slack](https://slack.com/)
   - [Sublime Text](https://www.sublimetext.com/)
