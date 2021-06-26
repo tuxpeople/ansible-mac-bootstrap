@@ -59,16 +59,3 @@
 - name: Ensure custom iTerm Solarized Dark theme is added.
   shell: open "files/iterm/Solarized Dark.itermcolors"
   changed_when: false
-  
-- name: Creates ssh directory
-  file:
-    path: "{{ this_user_registered.home }}/.ssh"
-    state: directory
-
-- name: Ensure ssh config is a link to nextcloud
-  file:
-    src: "{{ this_user_registered.home }}/Nextcloud/Allgemein/dotfiles/ssh_config"
-    dest: "{{ this_user_registered.home }}/.ssh/config"
-    owner: "{{ ansible_user }}"
-    state: link
-    force: yes
