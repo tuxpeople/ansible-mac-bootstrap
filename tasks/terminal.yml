@@ -59,3 +59,7 @@
 - name: Ensure custom iTerm Solarized Dark theme is added.
   shell: open "files/iterm/Solarized Dark.itermcolors"
   changed_when: false
+
+- name: Kill iTerm2
+  shell: killall iTerm2
+  changed_when: false
