@@ -115,3 +115,15 @@
 
 - name: Add Pictures folder to sidebar
   shell: "mysides add Bilder file://$HOME/Pictures/"
+
+- name: Ensure homebrew-bash is in /etc/shells
+  ansible.builtin.lineinfile:
+    path: /etc/shells
+    line: "/usr/local/bin/bash"
+
+- name: change user shell to homebrew-bash  
+  expect:
+    command: "chsh -s /usr/local/bin/bash"
+    responses:
+      (?i)password: "{{ ansible_sudo_pass }}"
+    creates: ".shell_is_homebrew-bash"
