@@ -23,7 +23,7 @@
     - /System/Applications/Mail.app
     - "\"/Applications/Microsoft Outlook.app\""
     - "\"/Applications/Microsoft Teams.app\""
-    - /Applications/VSCodium.app
+    - "\"/Applications/Visual Studio Code.app\""
     - /System/Applications/Messages.app
     - /System/Applications/Calendar.app
     - /System/Applications/Notes.app

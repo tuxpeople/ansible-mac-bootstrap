@@ -53,6 +53,8 @@ ansible-galaxy install -r requirements.yml
 
 ansible-playbook main.yml --ask-become-pass
 
+chsh -s /usr/local/bin/bash
+
 cd
 
 rm -rf $HOME/tmpgit
