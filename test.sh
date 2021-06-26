@@ -47,7 +47,7 @@ sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist
 
 chsh -s /bin/bash
 
-curl -L https://raw.githubusercontent.com/tuxpeople/dotfiles/master/Brewfile > files/Brewfile
+#curl -L https://raw.githubusercontent.com/tuxpeople/dotfiles/master/Brewfile > files/Brewfile
 
 ansible-galaxy install -r requirements.yml
 
