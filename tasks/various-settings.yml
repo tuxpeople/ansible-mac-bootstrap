@@ -105,9 +105,10 @@
     state: present
   register: this_user_registered
 
-#- name: Set wallpaper
-#  shell: "osascript -e 'tell application "System Events" to tell every desktop to set picture to {{ this_user_registered.home }}/git/dotfiles/wallpaper/luca-micheli-422053-unsplash.jpg" 
-  
+- name: Set wallpaper
+  shell: files/bgimage.sh
+  changed_when: false
+
 - name: Enable SSH access
   shell: systemsetup -setremotelogin on
   become: true
