@@ -63,3 +63,11 @@
 - name: Kill iTerm2
   shell: killall iTerm2
   changed_when: false
+
+- name: Ensure we have a link to iCloudDrive
+  file:
+    src: "{{ this_user_registered.home }}/Library/Mobile Documents/com~apple~CloudDocs/Dateien"
+    dest: "{{ this_user_registered.home }}/iCloudDrive"
+    owner: "{{ ansible_user }}"
+    state: link
+    force: yes
