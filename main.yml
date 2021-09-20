@@ -45,6 +45,16 @@
       set_fact:
         ansible_user: "{{ whoami.stdout }}"
 
+    - name: "Set fact myenv to business"
+      set_fact:
+        myenv: "business"
+      when: myhostname == "ws547"
+
+    - name: "Set fact myenv to private"
+      set_fact:
+        myenv: "private"
+      when: myhostname != "ws547"
+
     # - include_tasks: tasks/sudoers.yml
     #   when: configure_sudoers
     #   tags: ['sudoers']
@@ -72,6 +82,9 @@
     - import_tasks: tasks/sublime-text.yml
       when: configure_sublime
       tags: ['sublime-text']
+
+    - import_tasks: tasks/business-settings.yml
+      when: (configure_settings) and (myenv == "business")
 
     - name: Run configured post-provision ansible task files.
       include_tasks: "{{ outer_item }}"
