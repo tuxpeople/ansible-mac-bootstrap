@@ -85,6 +85,7 @@
 
     - import_tasks: tasks/business-settings.yml
       when: (configure_settings) and (myenv == "business")
+      tags: ['business']
 
     - name: Run configured post-provision ansible task files.
       include_tasks: "{{ outer_item }}"
