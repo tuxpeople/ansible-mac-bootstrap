@@ -15,6 +15,9 @@ function installcli() {
 echo "Are you logged into Mac Appstore?"
 read -p "Press enter to continue"
 
+echo "Enter the hostname: "  
+read myhostname  
+
 echo "Sudo magic"
 # Sudo Magic :)
 sudo -v
@@ -60,4 +63,4 @@ sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist
 echo "Starting Ansible run"
 echo "If something went wrong, start this step again with:"
 echo "     cd /tmp/git && ansible-playbook main.yml -i inventory -K"
-ansible-playbook main.yml -i inventory -K
+ansible-playbook main.yml -i inventory -K --extra-vars "myhostname=${myhostname}"

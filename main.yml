@@ -4,10 +4,10 @@
   vars_files:
     - default.config.yml
 
-  vars_prompt:
-    - name: myhostname
-      prompt: "Whats the hostname?"
-      private: no
+  # vars_prompt:
+  #   - name: myhostname
+  #     prompt: "Whats the hostname?"
+  #     private: no
 
   pre_tasks:
     - name: Include playbook configuration.
