@@ -16,6 +16,10 @@
         - "{{ playbook_dir }}/config.yml"
       tags: ['always']
 
+    - name: Install Rosetta 2
+      ansible.builtin.shell: "softwareupdate --install-rosetta"
+      when: ansible_architecture == 'arm64'
+
   roles:
     - role: elliotweiser.osx-command-line-tools
     - role: geerlingguy.mac.homebrew
