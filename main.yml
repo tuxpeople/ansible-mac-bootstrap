@@ -37,6 +37,13 @@
       tags: ['dock']
 
   tasks:
+    - name: "Ensure {{ myhomedir }}/bin exists" 
+      ansible.builtin.file:
+        path: "{{ myhomedir }}/bin"
+        state: directory
+        owner: "{{ ansible_user }}"
+        mode: 0750
+
     # - include_tasks: tasks/sudoers.yml
     #   when: configure_sudoers
     #   tags: ['sudoers']

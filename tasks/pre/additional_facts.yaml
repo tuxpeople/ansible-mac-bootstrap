@@ -44,13 +44,6 @@
       set_fact:
         myhomedir: "{{ this_user_registered.home }}"
 
-    - name: "Ensure {{ myhomedir }} exists" 
-      ansible.builtin.file:
-        path: "{{ myhomedir }}"
-        state: directory
-        owner: "{{ ansible_user }}"
-        mode: 0750
-
 - name: "Set fact mybrewbindir to {{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}/bin"
   set_fact:
     mybrewbindir: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}/bin"
