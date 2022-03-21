@@ -9,6 +9,9 @@
       prompt: "Whats the hostname?"
       private: no
 
+  environment:
+    PLATFORM: "{{ ansible_architecture }}"
+
   pre_tasks:
     - name: Include playbook configuration.
       include_vars: "{{ item }}"
