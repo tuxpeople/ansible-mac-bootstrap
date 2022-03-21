@@ -22,7 +22,7 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until we have finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-[ ! -d ~/Library/Mobile Documents/com~apple~CloudDocs/Dateien ] && (echo "Error: Login to iCloud First!"; exit 1)
+[ ! -d "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/Dateien" ] && (echo "Error: Login to iCloud First!"; exit 1)
 
 [ ! -d "/Library/Developer/CommandLineTools" ] && installcli
 
@@ -58,5 +58,8 @@ else
 fi
 
 echo "Starting Ansible run"
-ln -s "~/Library/Mobile Documents/com~apple~CloudDocs/Dateien" ~/iCloudDrive
+echo "If something went wrong, start this step again with:"
+echo "     cd /tmp/git && ansible-playbook main.yml -i inventory -K"
+ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/Dateien" ${HOME}/iCloudDrive
+${HOME}/iCloudDrive/Allgemein/bin/add_vault_password
 ansible-playbook main.yml -i inventory -K
