@@ -1,5 +1,17 @@
 #!/bin/bash
 
+function installcli() {
+  # https://gist.github.com/ChristopherA/a598762c3967a1f77e9ecb96b902b5db
+  echo "Update MacOS & Install Command Line Interface. If this fails, do it manually."
+  sudo /usr/sbin/softwareupdate -l
+  touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+  sudo /usr/sbin/softwareupdate -ia
+  rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+  echo "Sleep 20"
+  sleep 20
+  xcode-select --install
+}
+
 echo "Are you logged into Mac Appstore?"
 read -p "Press enter to continue"
 
@@ -10,15 +22,20 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until we have finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+[ ! -d "/Library/Developer/CommandLineTools" ] && installcli
+
 echo "Cloning Repo"
-mkdir -p /tmp/git
-git clone https://github.com/tuxpeople/ansible-mac-bootstrap.git /tmp/git
+mkdir -p /tmp/git || exit 1
+git clone https://github.com/tuxpeople/ansible-mac-bootstrap.git /tmp/git || exit 1
+
+echo "Upgrading PIP"
+pip3 install --upgrade pip || exit 1
 
 echo "Installing Ansible"
-pip install --requirement /tmp/git/requirements.txt
+pip3 install --requirement /tmp/git/requirements.txt || exit 1
 
 echo "Installing Ansible requirements"
-ansible-galaxy install -r requirements.yml
+ansible-galaxy install -r requirements.yml || exit 1
 
 echo "Setting max open files"
 cd /tmp/git
