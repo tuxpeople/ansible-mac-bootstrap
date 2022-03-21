@@ -28,7 +28,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo "Cloning Repo"
 mkdir -p /tmp/git || exit 1
-git clone --depth 1 https://github.com/tuxpeople/ansible-mac-bootstrap.git /tmp/git || exit 1
+git clone https://github.com/tuxpeople/ansible-mac-bootstrap.git /tmp/git || exit 1
 
 echo "Upgrading PIP"
 pip3 install --upgrade pip || exit 1
