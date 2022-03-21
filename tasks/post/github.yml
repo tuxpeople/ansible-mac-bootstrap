@@ -22,7 +22,7 @@
       ansible.builtin.git:
         repo: "{{ base_url }}/tuxpeople/{{ item['clone_url'] | basename }}"
         version: "{{ item['default_branch'] }}"
-        dest: "{{ ansible_user_dir }}/Development/Projects/{{ item['name'] }}"
+        dest: "{{ ansible_user_dir }}/development/github/{{ item['name'] }}"
         accept_hostkey: true
         update: false
       loop: "{{ github_repos['json']['items'] }}"
@@ -30,7 +30,7 @@
         label: "{{ item['name'] }}"
     - name: Update remote origin to SSH url
       community.general.git_config:
-        repo: "{{ ansible_user_dir }}/Development/Projects/{{ item['name'] }}"
+        repo: "{{ ansible_user_dir }}/development/github/{{ item['name'] }}"
         scope: local
         name: remote.origin.url
         value: "{{ item['ssh_url'] }}"

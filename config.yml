@@ -29,7 +29,7 @@ sudoers_custom_config: ''
 
 dotfiles_repo: https://github.com/tuxpeople/dotfiles.git
 dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
+dotfiles_repo_local_destination: ~/development/github/dotfiles
 dotfiles_files:
   - .aliases
   - .bash_profile
@@ -53,7 +53,7 @@ homebrew_clear_cache: true
 homebrew_upgrade_all_packages: true
 homebrew_cask_accept_external_apps: true
 homebrew_group: "staff"
-homebrew_brewfile_dir: "~/Development/GitHub/dotfiles/machine/bootstrap/"
+homebrew_brewfile_dir: "~/development/github/dotfiles/machine/{{ myenv }}/"
 
 homebrew_taps: []
 
