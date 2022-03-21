@@ -9,9 +9,6 @@
       prompt: "Whats the hostname?"
       private: no
 
-  environment:
-    PLATFORM: "{{ ansible_architecture }}"
-
   pre_tasks:
     - name: Include playbook configuration.
       include_vars: "{{ item }}"
@@ -31,6 +28,8 @@
       when: configure_dotfiles
       tags: ['dotfiles']
     - role: geerlingguy.mac.homebrew
+      environment:
+        PLATFORM: "{{ ansible_architecture }}"
       tags: ['homebrew']
     - role: geerlingguy.mac.mas
       when: mas_installed_apps or mas_installed_app_ids
