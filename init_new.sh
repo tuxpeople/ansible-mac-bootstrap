@@ -33,6 +33,8 @@ pip3 install --upgrade pip || exit 1
 
 echo "Installing Ansible"
 pip3 install --requirement /tmp/git/requirements.txt || exit 1
+PATH="/usr/local/bin:$(/usr/local/bin/python3 -m site --user-base)/bin:$PATH"
+export PATH
 
 echo "Installing Ansible requirements"
 ansible-galaxy install -r requirements.yml || exit 1
