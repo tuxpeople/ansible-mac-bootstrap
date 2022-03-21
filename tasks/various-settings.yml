@@ -8,6 +8,17 @@
     - "defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string {{ myhostname }}"
   become: yes
 
+# https://www.maketecheasier.com/use-touch-id-authenticate-sudo-commands-mac/
+- name: Enable Touch ID for sudo if this is a MacBook
+  lineinfile:
+    path: /etc/pam.d/sudo
+    insertafter: "^(#)? sudo: auth account password session"
+    line: "auth       sufficient     pam_tid.so"
+    firstmatch: yes
+    state: present
+  become: true
+  when: macbook is defined
+
 - name: Install base utilities
   homebrew:
     name: ['m-cli', 'dockutil']
@@ -98,6 +109,9 @@
 
 - name: Show the Path Bar in Finder
   shell: defaults write com.apple.finder ShowPathbar -bool true
+
+- name: Allow unlock with apple watch
+  shell: sudo defaults write com.apple.applicationaccess allowAutoUnlock -bool true
 
 - name: Getting Users Homedir
   user:

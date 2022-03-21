@@ -8,13 +8,3 @@
 - name: Set DSBindTimeout to 4
   shell: "/usr/bin/defaults write /Library/Preferences/com.apple.loginwindow DSBindTimeout -int 4"
   become: true
-
-# https://www.maketecheasier.com/use-touch-id-authenticate-sudo-commands-mac/
-- name: Enable Touch ID for sudo
-  lineinfile:
-    path: /etc/pam.d/sudo
-    insertafter: "^(#)? sudo: auth account password session"
-    line: "auth       sufficient     pam_tid.so"
-    firstmatch: yes
-    state: present
-  become: true
