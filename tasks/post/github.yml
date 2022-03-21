@@ -10,7 +10,7 @@
       register: github_repos
     - name: Create Git project directories
       ansible.builtin.file:
-        path: "{{ ansible_user_dir }}/projects/github/{{ item['name'] }}"
+        path: "{{ ansible_user_dir }}/development/github/{{ item['name'] }}"
         state: directory
         mode: 0755
       loop: "{{ github_repos['json']['items'] }}"
@@ -21,7 +21,7 @@
         base_url: "git@github.com:"
       ansible.builtin.git:
         repo: "{{ base_url }}/tuxpeople/{{ item['clone_url'] | basename }}"
-        dest: "{{ ansible_user_dir }}/projects/github/{{ item['name'] }}"
+        dest: "{{ ansible_user_dir }}/development/github/{{ item['name'] }}"
         accept_hostkey: true
         update: false
       loop: "{{ github_repos['json']['items'] }}"
