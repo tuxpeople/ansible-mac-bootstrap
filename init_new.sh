@@ -37,7 +37,7 @@ PATH="/usr/local/bin:$(python3 -m site --user-base)/bin:$PATH"
 export PATH
 
 echo "Installing Ansible requirements"
-ansible-galaxy install -r requirements.yml || exit 1
+ansible-galaxy install -r /tmp/git/requirements.yml || exit 1
 
 echo "Setting max open files"
 cd /tmp/git
@@ -56,4 +56,5 @@ else
 fi
 
 echo "Starting Ansible run"
+ln -s ~/Library/Mobile Documents/com~apple~CloudDocs/Dateien ~/iCloudDrive
 ansible-playbook main.yml -i inventory -K
