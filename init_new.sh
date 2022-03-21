@@ -50,12 +50,12 @@ sudo chown root:wheel /Library/LaunchDaemons/limit.maxproc.plist
 sudo launchctl load -w /Library/LaunchDaemons/limit.maxfiles.plist
 sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist
 
-echo "Getting Brewfile"
-if [[ $(hostname) == ws* ]]; then
-  curl -sfL https://raw.githubusercontent.com/tuxpeople/dotfiles/master/machine/business/Brewfile > files/Brewfile
-else
-  curl -sfL https://raw.githubusercontent.com/tuxpeople/dotfiles/master/machine/private/Brewfile > files/Brewfile
-fi
+# echo "Getting Brewfile"
+# if [[ $(hostname) == ws* ]]; then
+#   curl -sfL https://raw.githubusercontent.com/tuxpeople/dotfiles/master/machine/business/Brewfile > files/Brewfile
+# else
+#   curl -sfL https://raw.githubusercontent.com/tuxpeople/dotfiles/master/machine/private/Brewfile > files/Brewfile
+# fi
 
 echo "Starting Ansible run"
 echo "If something went wrong, start this step again with:"
