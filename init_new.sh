@@ -52,9 +52,9 @@ sudo launchctl load -w /Library/LaunchDaemons/limit.maxproc.plist
 
 echo "Getting Brewfile"
 if [[ $(hostname) == ws* ]]; then
-  curl -L https://raw.githubusercontent.com/tuxpeople/dotfiles/master/machine/business/Brewfile > files/Brewfile
+  curl -sfL https://raw.githubusercontent.com/tuxpeople/dotfiles/master/machine/business/Brewfile > files/Brewfile
 else
-  curl -L https://raw.githubusercontent.com/tuxpeople/dotfiles/master/machine/private/Brewfile > files/Brewfile
+  curl -sfL https://raw.githubusercontent.com/tuxpeople/dotfiles/master/machine/private/Brewfile > files/Brewfile
 fi
 
 echo "Starting Ansible run"
