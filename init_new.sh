@@ -22,6 +22,8 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until we have finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+[ ! -d ~/Library/Mobile Documents/com~apple~CloudDocs/Dateien ] && (echo "Error: Login to iCloud First!"; exit 1)
+
 [ ! -d "/Library/Developer/CommandLineTools" ] && installcli
 
 echo "Cloning Repo"
@@ -56,5 +58,5 @@ else
 fi
 
 echo "Starting Ansible run"
-ln -s ~/Library/Mobile Documents/com~apple~CloudDocs/Dateien ~/iCloudDrive
+ln -s "~/Library/Mobile Documents/com~apple~CloudDocs/Dateien" ~/iCloudDrive
 ansible-playbook main.yml -i inventory -K
