@@ -131,8 +131,12 @@
   become: true
 
 - name: change user shell to homebrew-bash  
-  expect:
-    command: "chsh -s {{ mybrewbindir }}/bash"
-    responses:
-      (?i)password: "{{ ansible_sudo_pass }}"
-    creates: ".shell_is_homebrew-bash"
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    shell: "{{ mybrewbindir }}/bash"
+
+- name: change root shell to homebrew-bash  
+  ansible.builtin.user:
+    name: root
+    shell: "{{ mybrewbindir }}/bash"
+  become: true
