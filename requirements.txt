@@ -3,3 +3,4 @@ bcrypt
 cryptography>=35.0.0
 paramiko
 pyparsing
+jmespath
