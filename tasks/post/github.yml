@@ -18,12 +18,22 @@
         label: "{{ item['name'] }}"
     - name: Clone my GitHub repositories
       vars:
-        base_url: "git@github.com:"
+        base_url: "https://{{ github_personal_token }}@github.com"
       ansible.builtin.git:
         repo: "{{ base_url }}/tuxpeople/{{ item['clone_url'] | basename }}"
-        dest: "{{ ansible_user_dir }}/development/github/{{ item['name'] }}"
+        version: "{{ item['default_branch'] }}"
+        dest: "{{ ansible_user_dir }}/Development/Projects/{{ item['name'] }}"
         accept_hostkey: true
         update: false
+      loop: "{{ github_repos['json']['items'] }}"
+      loop_control:
+        label: "{{ item['name'] }}"
+    - name: Update remote origin to SSH url
+      community.general.git_config:
+        repo: "{{ ansible_user_dir }}/Development/Projects/{{ item['name'] }}"
+        scope: local
+        name: remote.origin.url
+        value: "{{ item['ssh_url'] }}"
       loop: "{{ github_repos['json']['items'] }}"
       loop_control:
         label: "{{ item['name'] }}"
