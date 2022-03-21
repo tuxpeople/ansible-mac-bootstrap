@@ -8,11 +8,6 @@
     - name: myhostname
       prompt: "Whats the hostname?"
       private: no
-    - name: mas_email
-      prompt: "What is your mas username?"
-      private: no
-    - name: mas_password
-      prompt: "What is your mas password?"
 
   pre_tasks:
     - name: Include playbook configuration.
@@ -45,15 +40,30 @@
       set_fact:
         ansible_user: "{{ whoami.stdout }}"
 
-    - name: "Set fact myenv to business"
-      set_fact:
-        myenv: "business"
-      when: myhostname == "ws547"
+    - name: Check if this is a MacBook
+      block:
+        # https://apple.stackexchange.com/a/98089
+        - name: "Get model information"
+          ansible.builtin.shell: "curl https://support-sp.apple.com/sp/product?cc=$(system_profiler SPHardwareDataType | awk '/Serial/ {print $4}' | cut -c 9-)"
+          register: SPHardwareDataType
+          changed_when: SPHardwareDataType.rc != 0
 
-    - name: "Set fact myenv to private"
-      set_fact:
-        myenv: "private"
-      when: myhostname != "ws547"
+        - name: "Set fact macbook if appropriate"
+          set_fact:
+            macbook: true
+          when: "'MacBook' in SPHardwareDataType.stdout"
+
+    - name: Check if this is a business or a private device
+      block:
+        - name: "Set fact myenv to business"
+          set_fact:
+            myenv: "business"
+          when: myhostname is match("ws.*")
+
+        - name: "Set fact myenv to private"
+          set_fact:
+            myenv: "private"
+          when: not myhostname is match("ws.*")
 
     # - include_tasks: tasks/sudoers.yml
     #   when: configure_sudoers
@@ -78,10 +88,6 @@
 
     - import_tasks: tasks/extra-packages.yml
       tags: ['extra-packages']
-
-    - import_tasks: tasks/sublime-text.yml
-      when: configure_sublime
-      tags: ['sublime-text']
 
     - import_tasks: tasks/business-settings.yml
       when: (configure_settings) and (myenv == "business")

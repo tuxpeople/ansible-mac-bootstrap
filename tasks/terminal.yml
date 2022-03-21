@@ -8,23 +8,15 @@
 
 - name: Ensure custom Terminal profile is added.
   copy:
-    src: files/terminal/JJG-Term.terminal
-    dest: /tmp/JJG-Term.terminal
+    src: "files/terminal/Solarized Dark xterm-256color.terminal"
+    dest: "/tmp/Solarized Dark xterm-256color.terminal"
   changed_when: false
-  when: "'JJG-Term' not in terminal_theme.stdout"
+  when: "'Solarized Dark xterm-256color' not in terminal_theme.stdout"
 
 - name: Ensure custom Terminal profile is added.
-  command: open /tmp/JJG-Term.terminal
+  command: open "/tmp/Solarized Dark xterm-256color.terminal"
   changed_when: false
-  when: "'JJG-Term' not in terminal_theme.stdout"
-
-- name: Ensure custom Terminal profile is added.
-  command: open /tmp/JJG-Term.terminal
-  changed_when: false
-
-- name: Ensure custom Terminal Solarized Dark theme is added.
-  shell: open "files/terminal/Solarized Dark xterm-256color.terminal"
-  changed_when: false
+  when: "'Solarized Dark xterm-256color' not in terminal_theme.stdout"
 
 # TODO: This doesn't work in Yosemite. Consider a different solution?
 - name: Ensure custom Terminal profile is set as default.

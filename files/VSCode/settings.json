@@ -1,17 +1,39 @@
 {
-    "telemetry.enableTelemetry": false,
-    "git.autofetch": true,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.tabSize": 2, 
-    "workbench.iconTheme": "vscode-icons",
-    "ansibleVault.keyfile": "/Users/tdeutsch/ansiblevault",
-    "git.confirmSync": false,
-    "vs-kubernetes": {
-        "vs-kubernetes.knownKubeconfigs": [
-            "/Users/tdeutsch/Library/Mobile Documents/com~apple~CloudDocs/Dateien/Allgemein/kubectl/k3os.conf"
-        ],
-        "vs-kubernetes.kubeconfig": "/Users/tdeutsch/Library/Mobile Documents/com~apple~CloudDocs/Dateien/Allgemein/kubectl/k3os.conf"
+    "telemetry.telemetryLevel": "off",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
     },
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "yaml.customTags": [
+        "!encrypted/pkcs1-oaep scalar",
+        "!vault scalar"
+    ],
     "redhat.telemetry.enabled": true,
-    "terminal.integrated.tabs.enabled": true
+    "ansibleVault.keyfile": "/Users/tdeutsch/ansiblevault",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "kubeseal.executablePath": "/usr/local/bin/kubeseal",
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "stash-push:command",
+        "switch:command",
+        "push:command"
+    ],
+    "terraform.languageServer": {
+        "external": true,
+        "pathToBinary": "/usr/local/bin/terraform-ls",
+        "args": [
+            "serve"
+        ],
+        "maxNumberOfProblems": 100,
+        "trace.server": "off"
+    },
+    "sops.configPath": "./.sops.yaml",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "git.ignoreRebaseWarning": true,
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
