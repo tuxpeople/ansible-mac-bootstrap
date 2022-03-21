@@ -3,7 +3,7 @@
 - name: Install BBEdit cli tool
   ansible.builtin.file:
     src: /Applications/BBEdit.app/Contents/Helpers/bbedit_tool
-    dest: /usr/local/bin/bbedit
+    dest: "{{ myhomedir }}/bin/bbedit"
     mode: 0755
     state: link
 

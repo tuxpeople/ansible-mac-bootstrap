@@ -1,6 +1,6 @@
 ---
 - name: Set the UMB Dock items
-  shell: "/usr/local/bin/dockutil --add {{ item }}; sleep 5"
+  shell: "{{ mybrewbindir }}/dockutil --add {{ item }}; sleep 5"
   with_items:
     - "\"/Applications/Open Umb.app\" --position 2"
 

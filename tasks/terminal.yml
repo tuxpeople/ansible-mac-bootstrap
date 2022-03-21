@@ -31,16 +31,10 @@
   shell: killall cfprefsd
   changed_when: false
 
-- name: Getting Users Homedir
-  user:
-    name: "{{ ansible_user }}"
-    state: present
-  register: this_user_registered
-
 - name: Copy iTerm2 setting
   copy:
     src: files/iterm/com.googlecode.iterm2.plist
-    dest: "{{ this_user_registered.home }}/Library/Preferences/com.googlecode.iterm2.plist"
+    dest: "{{ myhomedir }}/Library/Preferences/com.googlecode.iterm2.plist"
     owner: "{{ ansible_user }}"
 
 - name: Remove extended attributes from iTerm2
@@ -58,8 +52,8 @@
 
 - name: Ensure we have a link to iCloudDrive
   file:
-    src: "{{ this_user_registered.home }}/Library/Mobile Documents/com~apple~CloudDocs/Dateien"
-    dest: "{{ this_user_registered.home }}/iCloudDrive"
+    src: "{{ myhomedir }}/Library/Mobile Documents/com~apple~CloudDocs/Dateien"
+    dest: "{{ myhomedir }}/iCloudDrive"
     owner: "{{ ansible_user }}"
     state: link
     force: yes

@@ -24,10 +24,10 @@
     name: ['m-cli', 'dockutil']
 
 - name: Remove all items from the Dock
-  shell: /usr/local/bin/dockutil --remove all; sleep 3
+  shell: {{ mybrewbindir }}/dockutil --remove all; sleep 3
 
 - name: Set the default Dock items
-  shell: "/usr/local/bin/dockutil --add {{ item }}; sleep 5"
+  shell: "{{ mybrewbindir }}/dockutil --add {{ item }}; sleep 5"
   with_items:
     - /System/Applications/Launchpad.app
     - /Applications/Safari.app
@@ -51,7 +51,7 @@
     - ~/Downloads --section others
 
 - name: Set the UMB Dock items
-  shell: "/usr/local/bin/dockutil --add {{ item }}; sleep 5"
+  shell: "{{ mybrewbindir }}/dockutil --add {{ item }}; sleep 5"
   with_items:
     - "\"/Applications/Open Umb.app\" --position 2"
   when: myenv == "business"
@@ -60,13 +60,13 @@
   shell: defaults write com.apple.dock tilesize -int 30; sleep 2
 
 - name: Change Dock's position to the bottom of the screen
-  shell: /usr/local/bin/m dock position BOTTOM; sleep 2
+  shell: {{ mybrewbindir }}/m dock position BOTTOM; sleep 2
 
 - name: Turn magnification on
-  shell: /usr/local/bin/m dock magnification YES; sleep 2
+  shell: {{ mybrewbindir }}/m dock magnification YES; sleep 2
 
 - name: Disable Dock's auto hide feature
-  shell: /usr/local/bin/m dock autohide no; sleep 2
+  shell: {{ mybrewbindir }}/m dock autohide no; sleep 2
 
 - name: Disable the Screensaver
   shell: defaults write com.apple.screensaver idleTime 0
@@ -113,12 +113,6 @@
 - name: Allow unlock with apple watch
   shell: sudo defaults write com.apple.applicationaccess allowAutoUnlock -bool true
 
-- name: Getting Users Homedir
-  user:
-    name: "{{ ansible_user }}"
-    state: present
-  register: this_user_registered
-
 - name: Set wallpaper
   shell: files/bgimage.sh
   changed_when: false
@@ -133,11 +127,11 @@
 - name: Ensure homebrew-bash is in /etc/shells
   ansible.builtin.lineinfile:
     path: /etc/shells
-    line: "/usr/local/bin/bash"
+    line: "{{ mybrewbindir }}/bash"
 
 - name: change user shell to homebrew-bash  
   expect:
-    command: "chsh -s /usr/local/bin/bash"
+    command: "chsh -s {{ mybrewbindir }}/bash"
     responses:
       (?i)password: "{{ ansible_sudo_pass }}"
     creates: ".shell_is_homebrew-bash"

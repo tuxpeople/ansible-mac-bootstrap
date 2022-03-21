@@ -17,13 +17,13 @@
 - name: Installing {{ whereami_zip_url }}
   ansible.builtin.unarchive:
     src: "{{ whereami_zip_url }}"
-    dest: /usr/local/bin
+    dest: "{{ myhomedir }}/bin"
     remote_src: yes
 
 - name: Configure whereami with key
   ansible.builtin.lineinfile:
-    path: /usr/local/bin/wobinich
-    line: "/usr/local/bin/whereami -k {{ OpenCageAPIKey }}"
+    path: "{{ myhomedir }}/bin/wobinich"
+    line: "{{ myhomedir }}/bin/whereami -k {{ OpenCageAPIKey }}"
     create: yes
     mode: '0755'
   become: no

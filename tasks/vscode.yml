@@ -4,22 +4,16 @@
   shell: xattr -c "/Applications/Visual Studio Code.app"
   changed_when: false
   ignore_errors: true
-
-- name: Getting Users Homedir
-  user:
-    name: "{{ ansible_user }}"
-    state: present
-  register: this_user_registered
   
 - name: Creates settings directory
   file:
-    path: "{{ this_user_registered.home }}/Library/Application\ Support/Code/User/"
+    path: "{{ myhomedir }}/Library/Application\ Support/Code/User/"
     state: directory
 
 - name: Copy settings
   copy:
     src: "files/VSCode/settings.json"
-    dest: "{{ this_user_registered.home }}/Library/Application\ Support/Code/User/settings.json"
+    dest: "{{ myhomedir }}/Library/Application\ Support/Code/User/settings.json"
     owner: "{{ ansible_user }}"
 
 # - name: Install or update extensions

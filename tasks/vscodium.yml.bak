@@ -4,22 +4,16 @@
   shell: xattr -c /Applications/VSCodium.app
   changed_when: false
   ignore_errors: true
-
-- name: Getting Users Homedir
-  user:
-    name: "{{ ansible_user }}"
-    state: present
-  register: this_user_registered
   
 - name: Creates settings directory
   file:
-    path: "{{ this_user_registered.home }}/Library/Application\ Support/VSCodium/User/"
+    path: "{{ myhomedir }}/Library/Application\ Support/VSCodium/User/"
     state: directory
 
 - name: Copy settings
   copy:
     src: "files/VSCodium/settings.json"
-    dest: "{{ this_user_registered.home }}/Library/Application\ Support/VSCodium/User/settings.json"
+    dest: "{{ myhomedir }}/Library/Application\ Support/VSCodium/User/settings.json"
     owner: "{{ ansible_user }}"
 
 - name: Install or update extensions
