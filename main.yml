@@ -17,7 +17,7 @@
       tags: ['always']
 
     - name: Install Rosetta 2
-      ansible.builtin.shell: "softwareupdate --install-rosetta"
+      ansible.builtin.shell: "/usr/sbin/softwareupdate --install-rosetta --agree-to-license"
       when: ansible_architecture == 'arm64'
 
   roles:
