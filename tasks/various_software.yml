@@ -14,7 +14,7 @@
   set_fact:
     whereami_zip_url: "{{ github_call.json | json_query('assets[0].browser_download_url') }}"
 
-- name: Installing {{ whereami_zip_url }}
+- name: "Installing {{ whereami_zip_url }}"
   ansible.builtin.unarchive:
     src: "{{ whereami_zip_url }}"
     dest: "{{ myhomedir }}/bin"

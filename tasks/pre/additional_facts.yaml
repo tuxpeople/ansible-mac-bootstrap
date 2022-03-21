@@ -3,7 +3,7 @@
   register: whoami
   changed_when: whoami.rc != 0
 
-- name: "Set fact ansible_suer to {{ whoami.stdout }}"
+- name: "Set fact ansible_user to {{ whoami.stdout }}"
   set_fact:
     ansible_user: "{{ whoami.stdout }}"
 
