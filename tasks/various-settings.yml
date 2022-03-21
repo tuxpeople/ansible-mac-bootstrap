@@ -134,6 +134,7 @@
   ansible.builtin.user:
     name: "{{ ansible_user_id }}"
     shell: "{{ mybrewbindir }}/bash"
+  become: true
 
 - name: change root shell to homebrew-bash  
   ansible.builtin.user:
